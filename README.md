@@ -60,7 +60,7 @@ tailwind.config.js
 ```js
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
@@ -80,7 +80,7 @@ index.css
 
 ```tsx
 function App() {
-  return <h1 className='text-7xl font-bold '>App</h1>;
+  return <h1 className="text-7xl font-bold ">App</h1>;
 }
 export default App;
 ```
@@ -115,15 +115,15 @@ npm i -D @types/node
 vite.config.ts
 
 ```ts
-import path from 'path';
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import path from "path";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 });
@@ -141,16 +141,16 @@ npx shadcn-ui@latest add button
 - restart server
 
 ```tsx
-import { Button } from './components/ui/button';
+import { Button } from "./components/ui/button";
 
 function App() {
   return (
     <div>
-      <h1 className='text-7xl font-bold '>App</h1>
+      <h1 className="text-7xl font-bold ">App</h1>
       <Button
-        variant='destructive'
-        size='lg'
-        onClick={() => console.log('it worked!!!')}
+        variant="destructive"
+        size="lg"
+        onClick={() => console.log("it worked!!!")}
       >
         Click Me
       </Button>
@@ -184,13 +184,13 @@ npm install @reduxjs/toolkit react-redux
   - user/userSlice.ts
 
 ```ts
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
-  name: 'user slice',
+  name: "user slice",
 };
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {},
 });
@@ -201,10 +201,10 @@ export default userSlice.reducer;
 - create src/store.ts
 
 ```ts
-import { configureStore } from '@reduxjs/toolkit';
-import themeReducer from './features/theme/themeSlice';
-import cartReducer from './features/cart/cartSlice';
-import userReducer from './features/user/userSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import themeReducer from "./features/theme/themeSlice";
+import cartReducer from "./features/cart/cartSlice";
+import userReducer from "./features/user/userSlice";
 // ...
 
 export const store = configureStore({
@@ -227,9 +227,9 @@ export type ReduxStore = {
 - create hooks.ts
 
 ```ts
-import { useDispatch, useSelector } from 'react-redux';
-import type { TypedUseSelectorHook } from 'react-redux';
-import type { RootState, AppDispatch } from './store';
+import { useDispatch, useSelector } from "react-redux";
+import type { TypedUseSelectorHook } from "react-redux";
+import type { RootState, AppDispatch } from "./store";
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`
 export const useAppDispatch: () => AppDispatch = useDispatch;
@@ -241,15 +241,15 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 main.tsx
 
 ```tsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
 
-import { store } from './store';
-import { Provider } from 'react-redux';
+import { store } from "./store";
+import { Provider } from "react-redux";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
     <App />
   </Provider>
@@ -257,7 +257,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 ```
 
 ```tsx
-import { useAppSelector } from './hooks';
+import { useAppSelector } from "./hooks";
 function App() {
   const { name } = useAppSelector((state) => state.userState);
   console.log(name);
@@ -283,7 +283,7 @@ function App() {
 
   ```tsx
   function About() {
-    return <h1 className='text-4xl'>About Page</h1>;
+    return <h1 className="text-4xl">About Page</h1>;
   }
   export default About;
   ```
@@ -291,17 +291,17 @@ function App() {
   index.ts
 
   ```ts
-  export { default as HomeLayout } from './HomeLayout';
-  export { default as Landing } from './Landing';
-  export { default as SingleProduct } from './SingleProduct';
-  export { default as Products } from './Products';
-  export { default as Cart } from './Cart';
-  export { default as Error } from './Error';
-  export { default as About } from './About';
-  export { default as Login } from './Login';
-  export { default as Register } from './Register';
-  export { default as Checkout } from './Checkout';
-  export { default as Orders } from './Orders';
+  export { default as HomeLayout } from "./HomeLayout";
+  export { default as Landing } from "./Landing";
+  export { default as SingleProduct } from "./SingleProduct";
+  export { default as Products } from "./Products";
+  export { default as Cart } from "./Cart";
+  export { default as Error } from "./Error";
+  export { default as About } from "./About";
+  export { default as Login } from "./Login";
+  export { default as Register } from "./Register";
+  export { default as Checkout } from "./Checkout";
+  export { default as Orders } from "./Orders";
   ```
 
   It's taking the default export from the 'About' module and giving it a name of 'About'.
@@ -321,21 +321,21 @@ import {
   Login,
   Checkout,
   Orders,
-} from './pages';
+} from "./pages";
 
-import { Button } from './components/ui/button';
-import { useAppSelector } from './hooks';
+import { Button } from "./components/ui/button";
+import { useAppSelector } from "./hooks";
 function App() {
   const { name } = useAppSelector((state) => state.userState);
   console.log(name);
 
   return (
     <div>
-      <h1 className='text-7xl font-bold '>App</h1>
+      <h1 className="text-7xl font-bold ">App</h1>
       <Button
-        variant='destructive'
-        size='lg'
-        onClick={() => console.log('it worked!!!')}
+        variant="destructive"
+        size="lg"
+        onClick={() => console.log("it worked!!!")}
       >
         Click Me
       </Button>
