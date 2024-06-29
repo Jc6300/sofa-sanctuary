@@ -1,0 +1,48 @@
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+export enum Mode {
+  SingleProduct = "singleProduct",
+  CartItem = "cartItem",
+}
+
+type SingleProductAmountProps = {
+  mode: Mode.SingleProduct;
+  amount: number;
+  setAmount: React.Dispatch<React.SetStateAction<number>>;
+};
+
+type CartItemAmountProps = {
+  mode: Mode.CartItem;
+  amount: number;
+  setAmount: (value: number) => void;
+};
+
+const SelectProductAmount = ({
+  mode,
+  amount,
+  setAmount,
+}: SingleProductAmountProps | CartItemAmountProps) => {
+  const cartItem = mode === Mode.CartItem;
+
+  return (
+    <>
+      <h4 className="font-medium mb-2">Amount :</h4>
+      <Select
+        defaultValue={amount.toString()}
+        onValueChange={(value) => setAmount(Number(value))}
+      >
+        <SelectTrigger className={cartItem ? "w-[75px]" : "w-[150px]"}>
+          <SelectValue />
+        </SelectTrigger>
+      </Select>
+    </>
+  );
+};
+
+export default SelectProductAmount;
