@@ -19,16 +19,16 @@ const FormRange = ({ name, label, defaultValue }: FormRangeProps) => {
       <Label htmlFor={name} className="capitalize flex justify-between">
         {label || name}
         <span>{formatAsDollars(selectedPrice)}</span>
-        <Slider
-          id={name}
-          name={name}
-          step={step}
-          max={maxPrice}
-          value={[selectedPrice]}
-          onValueChange={(value) => setSelectedPrice(value[0])}
-          className="mt-4"
-        />
       </Label>
+      <Slider
+        id={name}
+        name={name}
+        step={step}
+        max={maxPrice}
+        value={[selectedPrice]}
+        onValueChange={(value) => setSelectedPrice(value[0])}
+        className="mt-4"
+      />
     </div>
   );
 };
