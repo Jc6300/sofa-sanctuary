@@ -30,7 +30,7 @@ export const SecondColumn = ({
   productColor: string;
 }) => {
   return (
-    <div className="sm:ml-4 md:ml-12 ms:w-48 ">
+    <div className="sm:ml-4 md:ml-12 sm:w-48 ">
       <h3 className="capitalize font-medium">{title}</h3>
       <h4 className="mt-2 capitalize text-sm">{company}</h4>
       <p className="mt-4 text-sm capitalize flex items-center gap-x-2">
@@ -47,9 +47,35 @@ export const SecondColumn = ({
     </div>
   );
 };
-export const ThirdColumn = () => {
-  return <h4>Third Column</h4>;
+export const ThirdColumn = ({
+  amount,
+  cartID,
+}: {
+  amount: number;
+  cartID: string;
+}) => {
+  const dispatch = useAppDispatch();
+  const removeItemFromCart = () => {
+    dispatch(removeItem(cartID));
+  };
+
+  const setAmount = (value: number) => {
+    dispatch(editItem({ cartID, amount: value }));
+  };
+  return (
+    <div>
+      <SelectProductAmount
+        amount={amount}
+        setAmount={setAmount}
+        mode={Mode.CartItem}
+      />
+      <Button variant="link" className="-ml-4" onClick={removeItemFromCart}>
+        remove
+      </Button>
+    </div>
+  );
 };
-export const FourthColumn = ({ price }: { price: number }) => {
+
+export const FourthColumn = ({ price }: { price: string }) => {
   return <p className="font-md sm:ml-auto">{formatAsDollars(price)}</p>;
 };
