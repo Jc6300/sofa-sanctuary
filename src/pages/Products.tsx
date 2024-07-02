@@ -13,7 +13,6 @@ export const loader: LoaderFunction = async ({
   const params = Object.fromEntries([
     ...new URL(request.url).searchParams.entries(),
   ]);
-  console.log(params);
 
   const response = await customFetch<ProductsResponse>(url, {
     params,

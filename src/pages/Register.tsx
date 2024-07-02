@@ -17,7 +17,7 @@ export const action: ActionFunction = async ({
     toast({ description: "Registration" });
     return redirect("/login");
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     const errorMsg =
       error instanceof AxiosError
         ? error.response?.data.error.message
@@ -35,13 +35,11 @@ function Register() {
           <CardTitle className="text-center">Register</CardTitle>
         </CardHeader>
         <CardContent>
-          <Form method="post">
-            <FormInput type="text" name="username" defaultValue="test" />
-            <FormInput type="email" name="email" defaultValue="test@test.com" />
+          <Form method="POST">
+            <FormInput type="text" name="username" />
+            <FormInput type="email" name="email" />
             <FormInput type="password" name="password" defaultValue="secret" />
-            <Button type="submit" variant="default" className="w-full mt-4">
-              Register
-            </Button>
+            <SubmitBtn text="Register" className="w-full mt-4" />
             <p className="text-center mt-4">
               Already a member?
               <Button type="button" asChild variant="link">
