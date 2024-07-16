@@ -11,7 +11,6 @@ const Filters = () => {
   const { search, company, category, shipping, order, price } = params;
   return (
     <Form className="border rounded-md px-8 py-4 grid gap-x-4 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center">
-      {/*SEARCH  */}
       <FormInput
         type="search"
         label="search product"
@@ -19,7 +18,6 @@ const Filters = () => {
         defaultValue={search}
       />
 
-      {/*CATEGORIES */}
       <FormSelect
         label="select category"
         name="category"
@@ -27,7 +25,6 @@ const Filters = () => {
         defaultValue={category}
       />
 
-      {/*COMPANY  */}
       <FormSelect
         label="select category"
         name="company"
@@ -35,7 +32,6 @@ const Filters = () => {
         defaultValue={company}
       />
 
-      {/* ORDER */}
       <FormSelect
         label="order by"
         name="order"
@@ -43,9 +39,8 @@ const Filters = () => {
         defaultValue={order}
       />
 
-      {/* PRICE */}
       <FormRange label="price" name="price" defaultValue={price} />
-      {/* SHIPPING */}
+
       <FormCheckbox
         label="free shipping"
         name="shipping"

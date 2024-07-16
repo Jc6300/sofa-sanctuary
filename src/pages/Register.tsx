@@ -17,7 +17,6 @@ export const action: ActionFunction = async ({
     toast({ description: "Registration" });
     return redirect("/login");
   } catch (error) {
-    // console.log(error);
     const errorMsg =
       error instanceof AxiosError
         ? error.response?.data.error.message

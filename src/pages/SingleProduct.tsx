@@ -58,15 +58,14 @@ const SingleProduct = () => {
           <Link to="/products">Products</Link>
         </Button>
       </div>
-      {/* PRODUCT */}
+
       <div className="mt-6 grid gap-y-8 lg:grid-cols-2  lg:gap-x-16">
-        {/* IMAGE */}
         <img
           src={image}
           alt={title}
           className="w-96 h-96 object-cover rounded-lg lg:w-full"
         />
-        {/* PRODUCT INFO */}
+
         <div>
           <h1 className="capitalize text-3xl font-bold">{title}</h1>
           <h4 className="text-xl mt-2">{company}</h4>
@@ -74,19 +73,19 @@ const SingleProduct = () => {
             {dollarsAmount}
           </p>
           <p className="mt-6 leading-8">{description}</p>
-          {/* COLORS */}
+
           <SelectProductColor
             colors={colors}
             productColor={productColor}
             setProductColor={setProductColor}
           />
-          {/* AMOUNT */}
+
           <SelectProductAmount
             mode={Mode.SingleProduct}
             amount={amount}
             setAmount={setAmount}
           />
-          {/* CART BUTTON */}
+
           <Button size="lg" className="mt-10" onClick={addToCart}>
             Add to cart
           </Button>
